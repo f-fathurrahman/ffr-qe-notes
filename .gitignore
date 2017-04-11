@@ -1,2 +1,4 @@
 # ignore all temporary dir
 tmp/
+*.xsf
+*.cube

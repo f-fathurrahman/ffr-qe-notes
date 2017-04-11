@@ -1,0 +1,40 @@
+&CONTROL
+  calculation = 'relax'
+  restart_mode = 'from_scratch'
+  pseudo_dir = '/home/efefer/pseudo'
+  wf_collect = .true.
+  outdir = './tmp'
+  nstep = 1000
+/
+
+&SYSTEM
+  ibrav   = 1
+  a       = 15.0
+  ntyp    = 1
+  nat     = 2
+  ecutwfc = 30.0
+  nspin = 2
+  occupations = 'smearing'
+  smearing = 'mv'
+  degauss = 0.01
+  starting_magnetization(1) = 0.5
+/
+
+&ELECTRONS
+  electron_maxstep = 150
+  mixing_beta = 0.1
+/
+
+&IONS
+/
+
+ATOMIC_SPECIES
+O   16.00  O.pbe-kjpaw.UPF
+
+ATOMIC_POSITIONS angstrom
+O        7.500000000   7.500000000   7.500000000    0   0   0
+O        8.646026359   7.500000000   7.500000000
+
+K_POINTS gamma
+
+

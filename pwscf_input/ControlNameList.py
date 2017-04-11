@@ -40,4 +40,5 @@ class ControlNameList:
     def write_line(file):
         #file.write()
         pass
-        
+
+if __main__:

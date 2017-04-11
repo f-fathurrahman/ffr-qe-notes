@@ -17,7 +17,7 @@ class PWSCFInput:
 
         self.ATOMIC_POSITIONS = AtomicPositionCard( Atoms )
 
-        self.K_POINTS = KPointsCard( ksampling, ktype )
+        self.K_POINTS = KPointsCard( ksampling, ktype, cell=None )
 
     def write(self):
         # write to file

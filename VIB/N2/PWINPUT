@@ -1,0 +1,32 @@
+&CONTROL
+  calculation = 'relax'
+  restart_mode = 'from_scratch'
+  pseudo_dir = '/home/efefer/pseudo'
+  outdir = './tmp'
+  tprnfor = .TRUE.
+/
+
+&SYSTEM
+  ibrav   = 1
+  a       = 15.0
+  ntyp    = 1
+  nat     = 2
+  ecutwfc = 30.0
+/
+
+&ELECTRONS
+  electron_maxstep = 150
+  mixing_beta = 0.5
+/
+
+&IONS
+/
+
+ATOMIC_SPECIES
+N   14.00  N.pbe-kjpaw.UPF
+
+ATOMIC_POSITIONS angstrom
+N       4.260000000000000      5.000000000000000      5.000000000000000
+N       5.740000000000000      5.000000000000000      5.000000000000000
+
+K_POINTS gamma

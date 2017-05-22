@@ -1,0 +1,12 @@
+pw.x < PWINPUT.1xm > LOG.1xm
+pw.x < PWINPUT.1xp > LOG.1xp
+pw.x < PWINPUT.1ym > LOG.1ym
+pw.x < PWINPUT.1yp > LOG.1yp
+pw.x < PWINPUT.1zm > LOG.1zm
+pw.x < PWINPUT.1zp > LOG.1zp
+pw.x < PWINPUT.2xm > LOG.2xm
+pw.x < PWINPUT.2xp > LOG.2xp
+pw.x < PWINPUT.2ym > LOG.2ym
+pw.x < PWINPUT.2yp > LOG.2yp
+pw.x < PWINPUT.2zm > LOG.2zm
+pw.x < PWINPUT.2zp > LOG.2zp

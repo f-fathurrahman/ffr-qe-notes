@@ -1,0 +1,14 @@
+&INPUTPP
+  outdir = './tmp'
+  plot_num = 7
+  lsign = .true.
+  filplot = PSI2.dat
+  kpoint = 1
+  kband = 6
+/
+
+&PLOT
+  iflag = 3
+  output_format = 5
+  fileout = 'MO6.xsf'
+/

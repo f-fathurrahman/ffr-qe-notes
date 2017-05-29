@@ -1,0 +1,39 @@
+&CONTROL
+  calculation = 'relax'
+  restart_mode = 'from_scratch'
+  pseudo_dir = './pseudo'
+  outdir = './tmp'
+/
+
+&SYSTEM
+  ibrav   = 1
+  a       = 15.0
+  ntyp    = 2
+  nat     = 3
+  ecutwfc = 30.0
+  occupations = 'smearing'
+	smearing = 'mv'
+	degauss = 0.01
+/
+
+&ELECTRONS
+  electron_maxstep = 150
+  mixing_beta = 0.5
+/
+
+&IONS
+  ion_dynamics = 'bfgs'
+/
+
+ATOMIC_SPECIES
+N   14.00  N.pbe-kjpaw.UPF
+O   16.00  O.pbe-kjpaw.UPF
+
+ATOMIC_POSITIONS angstrom
+O      7.50000000       7.50000000       8.50000000
+N      7.50000000       7.50000000       7.50000000
+O      7.50000000       7.50000000       6.50000000
+
+K_POINTS gamma
+
+

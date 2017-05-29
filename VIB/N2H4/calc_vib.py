@@ -78,6 +78,9 @@ for n, e in enumerate(hnu):
         e = e.real
     stdout.write('%3d %6.1f%s  %7.1f%s\n' % (n, 1000 * e, c, s * e, c))
 stdout.write('---------------------\n')
+# ZPE
+zpe = 0.5 * hnu.real.sum()
+stdout.write('Zero-point energy: %.3f eV\n' % zpe)
 
 # write to jmol
 

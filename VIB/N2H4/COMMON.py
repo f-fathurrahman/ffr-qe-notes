@@ -10,7 +10,7 @@ INP_PREFIX = 'PWINPUT'
 OUT_PREFIX = 'LOG'
 
 #
-NFREE = 2
+NFREE = 4
 DELTA = 0.01
 
 METHOD = 'default'

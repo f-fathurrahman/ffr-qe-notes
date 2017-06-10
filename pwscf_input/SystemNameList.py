@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 class SystemNameList:
 
@@ -17,23 +18,23 @@ class SystemNameList:
         self.cosBC = None
         self.nat = len(atoms)
 
-        ntyp = len( np.unique( atoms.get_atomic_numbers() ) )
+        self.ntyp = len( np.unique( atoms.get_atomic_numbers() ) )
 
-        nbnd = None
-        tot_charge = None
-        tot_magnetization = None
-        starting_magnetization = None
-        ecutwfc = 30.0
-        ecutrho = 4.*ecutwfc
-        ecutfock = None
-        nr1 = None
-        nr2 = None
-        nr3 = None
-        nr1s = None
-        nr2s = None
-        nr3s = None
-        nosym = None
-        nosym_evc = None
+        self.nbnd = None
+        self.tot_charge = None
+        self.tot_magnetization = None
+        self.starting_magnetization = None
+        self.ecutwfc = 30.0
+        self.ecutrho = 4.*self.ecutwfc
+        self.ecutfock = None
+        self.nr1 = None
+        self.nr2 = None
+        self.nr3 = None
+        self.nr1s = None
+        self.nr2s = None
+        self.nr3s = None
+        self.nosym = None
+        self.nosym_evc = None
         """
         noinv | no_t_rev | force_symmorphic | use_all_frac | occupations | one_atom_occupations |
         starting_spin_angle | degauss | smearing | nspin | noncolin | ecfixed | qcutz | q2sigma |
@@ -48,11 +49,30 @@ class SystemNameList:
         """
 
     def write(self, f=None):
-        import sys
         if f == None:
             f = sys.stdout
-        f.write('Hello\n')
-        f.write('nat = %d\n' % self.nat)
+        #
+        f.write('&SYSTEM\n')
+        f.write('  ibrav = %d\n' % self.ibrav)
+        f.write('  nat = %d\n' % self.nat)
+        f.write('  ntyp = %d\n' % self.ntyp)
+        f.write('  ecutwfc = %f\n' % self.ecutwfc)
+        f.write('  ecutrho = %f\n' % self.ecutrho)
+        f.write('/\n\n')
         #
         if( f != sys.stdout ):
             f.close()
+
+def find_ntyp(atoms):
+    """
+    Return number of unique atom types (species)
+    Not really needed, he he he :-)
+    np.unique can be used instead
+    """
+    symbs = atoms.get_chemical_symbols()
+    unique_symbols = []
+    for s in symbs:
+        if not (s in unique_symbols):
+            unique_symbols.append(s)
+    #
+    return len(unique_symbols)

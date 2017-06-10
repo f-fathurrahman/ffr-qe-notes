@@ -1,3 +1,5 @@
+import sys
+
 class ControlNameList:
 
     """
@@ -9,6 +11,7 @@ class ControlNameList:
         self.nstep = 1000
         self.tprnfor = True
         self.outdir = './tmp'
+        self.prefix = 'pwscf'
 
         self.title = None
         self.verbosity = None
@@ -18,7 +21,6 @@ class ControlNameList:
         self.tstress = None
         self.dt = None
         self.wfcdir = None
-        self.prefix = None
         self.lkpoint_dir = None
         self.max_seconds = None
         self.etot_conv_thr = None
@@ -37,8 +39,17 @@ class ControlNameList:
         self.monopole = None
 
 
-    def write_line(file):
-        #file.write()
-        pass
-
-if __main__:
+    def write(self,f=None):
+        if f == None:
+            f = sys.stdout
+        #
+        f.write('&CONTROL\n')
+        f.write('  prefix = \'%s\'\n' % self.prefix)
+        f.write('  outdir = \'%s\'\'\n' % self.outdir)
+        f.write('  pseudo_dir = \'%s\'\n' % self.outdir)
+        f.write('  tprnfor = %s\n' % self.tprnfor)
+        f.write('  nstep = %d\n' % self.nstep)
+        f.write('/\n\n')
+        #
+        if( f != sys.stdout ):
+            f.close()

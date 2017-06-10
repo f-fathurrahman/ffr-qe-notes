@@ -4,6 +4,7 @@ import sys
 class SystemNameList:
 
     """
+    A class to represent SYSTEM namelist in PWSCF input.
     Atomic structures will be specified using in CELL_PARAMETERS.
     """
     def __init__(self, atoms):
@@ -79,17 +80,3 @@ class SystemNameList:
         #
         if( f != sys.stdout ):
             f.close()
-
-def find_ntyp(atoms):
-    """
-    Return number of unique atom types (species)
-    Not really needed, he he he :-)
-    np.unique can be used instead
-    """
-    symbs = atoms.get_chemical_symbols()
-    unique_symbols = []
-    for s in symbs:
-        if not (s in unique_symbols):
-            unique_symbols.append(s)
-    #
-    return len(unique_symbols)

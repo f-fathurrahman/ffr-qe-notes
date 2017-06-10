@@ -12,11 +12,12 @@ class ControlNameList:
         self.tprnfor = True
         self.outdir = './tmp'
         self.prefix = 'pwscf'
+        self.wf_collect = True
+        self.restart_mode = 'from_scratch'
+        self.pseudo_dir = './'
 
         self.title = None
         self.verbosity = None
-        self.restart_mode = None
-        self.wf_collect = None
         self.iprint = None
         self.tstress = None
         self.dt = None
@@ -26,7 +27,6 @@ class ControlNameList:
         self.etot_conv_thr = None
         self.forc_conv_thr = None
         self.disk_io = None
-        self.pseudo_dir = None
         self.tefield = None
         self.dipfield = None
         self.lelfield = None

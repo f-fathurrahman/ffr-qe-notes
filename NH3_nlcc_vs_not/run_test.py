@@ -1,0 +1,27 @@
+from __future__ import print_function
+
+from ase import Atoms
+from ase.units import Bohr
+import ase.io
+
+import sys
+sys.path.append('../')
+
+from pwscf_input import *
+
+atoms = ase.io.read('../structures/NH3.xyz')
+
+# set periodic  bounding box
+atoms.set_pbc([True,True,True])
+cell = np.array([16.0,16.0,16.0])*Bohr
+atoms.set_cell(cell)
+atoms.center()
+
+pspFiles = ['H.q1.gth', 'N.q5.gth']
+
+ecutwfcs = np.arange(20.,50.,2.)
+
+for ec in ecutwfcs:
+    pwinput = PWSCFInput(atoms, pspFiles, filename='PWINPUT_' + str(int(ec)))
+    pwinput.CONTROL.pseudo_dir = '../../GTH_PBE_2015'
+    pwinput.write()

@@ -60,9 +60,6 @@ class SystemNameList:
         f.write('  ecutwfc = %f\n' % self.ecutwfc)
         f.write('  ecutrho = %f\n' % self.ecutrho)
         f.write('/\n\n')
-        #
-        if( f != sys.stdout ):
-            f.close()
 
     def write_all(self,f=None):
         if f == None:
@@ -77,6 +74,3 @@ class SystemNameList:
                 else:
                     f.write('  %s = %s\n' % (k,sdict[k]))
         f.write('/\n\n')
-        #
-        if( f != sys.stdout ):
-            f.close()

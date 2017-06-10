@@ -38,6 +38,3 @@ class IonsNameList:
                 else:
                     f.write('  %s = %s\n' % (k,sdict[k]))
         f.write('/\n\n')
-        #
-        if( f != sys.stdout ):
-            f.close()

@@ -50,9 +50,6 @@ class ControlNameList:
         f.write('  tprnfor = %s\n' % self.tprnfor)
         f.write('  nstep = %d\n' % self.nstep)
         f.write('/\n\n')
-        #
-        if( f != sys.stdout ):
-            f.close()
 
     def write_all(self,f=None):
         if f == None:
@@ -67,6 +64,3 @@ class ControlNameList:
                 else:
                     f.write('  %s = %s\n' % (k,sdict[k]))
         f.write('/\n\n')
-        #
-        if( f != sys.stdout ):
-            f.close()

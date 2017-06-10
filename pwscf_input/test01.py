@@ -6,8 +6,7 @@ from SystemNameList import *
 atoms = Atoms('NH3')
 
 ctrl_NL = ControlNameList()
-ctrl_NL.write()
-print(ctrl_NL.__dict__)
+ctrl_NL.write_all()
 
 sys_NL = SystemNameList(atoms)
-sys_NL.write()
+sys_NL.write_all()

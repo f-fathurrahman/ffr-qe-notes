@@ -63,6 +63,23 @@ class SystemNameList:
         if( f != sys.stdout ):
             f.close()
 
+    def write_all(self,f=None):
+        if f == None:
+            f = sys.stdout
+        #
+        f.write('&SYSTEM\n')
+        sdict = self.__dict__
+        for k in sdict:
+            if not( sdict[k] == None ):
+                if type(sdict[k]) == str:
+                    f.write('  %s = \'%s\'\n' % (k,sdict[k]))
+                else:
+                    f.write('  %s = %s\n' % (k,sdict[k]))
+        f.write('/\n\n')
+        #
+        if( f != sys.stdout ):
+            f.close()
+
 def find_ntyp(atoms):
     """
     Return number of unique atom types (species)

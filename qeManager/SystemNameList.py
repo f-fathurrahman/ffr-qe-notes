@@ -49,6 +49,10 @@ class SystemNameList:
         | origin_choice | rhombohedral | zmon | realxz | block | block_1 | block_2 | block_height
         """
 
+    def set_ecutwfc(self,ecutwfc):
+        self.ecutwfc = ecutwfc
+        self.ecutrho = 4.0*ecutwfc
+
     def write(self, f=None):
         if f == None:
             f = sys.stdout

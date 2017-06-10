@@ -1,9 +1,8 @@
-Hartwigsen-Goedecker-Hutter psp for N,  from PRB58, 3641 (1998) 
-    7   5  010605 zatom,zion,pspdat
- 10 1   1 0 2001 0  pspcod,pspxc,lmax,lloc,mmax,r2well 
-     0.28917923    2   -12.23481988     1.76640728
+Goedecker pseudopotential for N
+    7   5  070301 zatom,zion,pspdat
+10 11  1 2 2001 0  pspcod,pspxc,lmax,lloc,mmax,r2well
+     0.28379051    2   -12.41522559     1.86809592
     2
-     0.25660487    1    13.55224272
-     0.27013369    1     0.0
-                         0.0
+     0.25540500    1    13.63026257
+     0.24549453    0
 

@@ -9,6 +9,8 @@ sys.path.append('../')
 
 from qeManager import *
 
+import os
+
 atoms = ase.io.read('../structures/NH3.xyz')
 
 # set periodic  bounding box
@@ -22,6 +24,14 @@ pspFiles = ['H.q1.gth', 'N.q5.gth']
 ecutwfcs = np.arange(20.,50.,2.)
 
 for ec in ecutwfcs:
-    pwinput = PWSCFInput(atoms, pspFiles, filename='PWINPUT_' + str(int(ec)))
-    pwinput.CONTROL.pseudo_dir = '../../GTH_PBE_2015'
+    inpName = 'PWINPUT_' + str(int(ec))
+    pwinput = PWSCFInput(atoms, pspFiles, filename=inpName)
+    #
+    pwinput.SYSTEM.set_ecutwfc(ec)
+    #
+    pwinput.CONTROL.pseudo_dir = '../GTH_PBE'
+    pwinput.CONTROL.disk_io = 'none'
     pwinput.write()
+    #
+    logName = 'LOG_' + str(int(ec))
+    os.system('pw.x < ' + inpName + ' > ' + logName)

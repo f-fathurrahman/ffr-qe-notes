@@ -7,7 +7,7 @@ import ase.io
 import sys
 sys.path.append('../')
 
-from pwscf_input import *
+from qeManager import *
 
 atoms = ase.io.read('../structures/NH3.xyz')
 

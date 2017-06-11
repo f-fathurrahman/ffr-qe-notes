@@ -1,4 +1,5 @@
 from __future__ import print_function
+import string
 
 class PWSCFOutput:
 
@@ -10,8 +11,15 @@ class PWSCFOutput:
         f = self.file
         line = f.readline()
         while line:
+            #
             if 'Program PWSCF' in line:
-                version = 
+                self.version = line.split()[2]
+                self.start_date = line.split()[8]
+                self.start_time = string.join( line.split()[10:] ).replace(' ','')
+                print('Version = %s' % self.version)
+                print('Start date = %s' % self.start_date)
+                print('Start time = %s' % self.start_time)
+            #
             line = f.readline()
 
     def close(self):

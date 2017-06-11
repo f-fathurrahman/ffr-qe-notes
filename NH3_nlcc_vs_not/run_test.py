@@ -35,3 +35,5 @@ for ec in ecutwfcs:
     #
     logName = 'LOG_' + str(int(ec))
     os.system('pw.x < ' + inpName + ' > ' + logName)
+
+
